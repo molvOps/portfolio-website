@@ -31,12 +31,12 @@ const projectData = [
     skills: ['React', 'CSS']
   },
   {
-    Name: 'AskUs Solutions',
+    Name: 'Upthyme',
     source: askus,
-    picLink: 'https://ask-us-solutions.vercel.app/',
-    github: 'https://github.com/codeczar00/AskUs-Solutions',
-    description: 'Designed and developed a professional website for a software house to showcase services and projects.',
-    skills: ['HTML', 'CSS', 'JavaScript']
+    picLink: 'https://upthyme.com/',
+    github: 'https://github.com/molvops',
+    description: 'Designed and developed frontend for an Employee Shift Management system.',
+    skills: ['React', 'TailwindCSS']
   },
   {
     Name: 'Schedule Generator',
