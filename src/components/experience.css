@@ -1,103 +1,190 @@
+:root{
+  --bg: #0b0f14;            /* page background if you want to set it */
+  --card-bg: rgba(20,20,25,0.6);
+  --accent: #e0ac00;        /* gold */
+  --muted: #bdbdbd;
+  --text: #ffffff;
+  --glass: rgba(255,255,255,0.03);
+  --card-radius: 16px;
+  --card-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+.experience-section{
+  padding: 3rem 1.5rem;
+  background: transparent;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* title */
 .title {
-    font-size: 60px;
-    text-align: center;
-    margin: 3rem 2rem;
-    color: white;
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  text-align: center;
+  margin: 0 0 2rem 0;
+  color: var(--text);
+  letter-spacing: 0.2px;
+  font-weight: 700;
 }
 
-.comp-logo img {
-    width: 50px;
-    border: 2px solid rgb(0, 0, 0);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: contain;
+/* grid container for cards */
+.cards{
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+  padding: 0.5rem;
 }
 
-.company {
-    max-width: 20rem;
-    margin: 2rem 3rem;
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    box-shadow: 0px 0px 10px 5px rgba(224, 172, 0, 0.25);
-    border-radius: 20px;
-    flex-wrap: wrap;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+/* each company card */
+.company-card{
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: linear-gradient(180deg, var(--card-bg), var(--glass));
+  padding: 1rem;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+  border: 1px solid rgba(224,172,0,0.06);
+  backdrop-filter: blur(6px);
 }
 
-.company:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 20px 50px rgba(255, 200, 0, 0.4);
+/* hover & focus to pop slightly */
+.company-card:hover,
+.company-card:focus-within{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(224,172,0,0.12);
 }
 
-.txt-cont .heading {
-    font-size: 25px;
-    color: gold;
+/* logo box */
+.logo-link{
+  display: inline-flex;
+  min-width: 56px;
+  min-height: 56px;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  background: rgba(255,255,255,0.02);
+  flex-shrink: 0;
+  text-decoration: none;
 }
 
-.txt-cont .role,
-.duration {
-    font-size: 15px;
-    font-weight: 700;
-    color: white;
+/* image */
+.comp-logo{
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(0,0,0,0.4);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.45);
 }
 
-.txt-cont .heading,
-.role,
-.duration {
-    padding-left: 20px;
+/* main content in card */
+.card-main{
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.company .description div {
-    padding-top: 15px;
-    font-size: 15px;
-    font-weight: 400;
+/* header row (company + meta) */
+.card-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
-@media (max-width: 767px) {
-    .title {
-        font-size: 1.8rem;
-        margin: 0.2rem 0.2rem;
-    }
-    
-    .company {
-        margin-top: 1.7rem;
-        margin-left: 1rem;
-        margin-right: 1rem;
-        display: flex;
-    }
+/* company heading */
+.heading{
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.125rem;
+}
 
-    .comp-logo img {
-        border: 2px solid rgb(0, 0, 0);
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        object-fit: contain;
-        margin-left: 0.2rem;
-    }
+/* role & duration */
+.meta{
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  text-align: right;
+}
 
-    .txt-cont .heading,
-    .role,
-    .duration {
-        padding-left: 0.25rem;
-    }
+.role{
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+}
 
-    .txt-cont .heading {
-        font-size: 1rem;
-        transform: translateY(6px);
-        padding-bottom: 0.15rem
-    }
+.duration{
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
 
-    .txt-cont .role,
-    .duration {
-        font-size: 0.6rem;
-    }
+/* description list */
+.description{
+  margin: 0.6rem 0 0 0;
+  padding-left: 1.05rem;
+  list-style-type: disc;
+  color: #e9e9e9;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
 
-    .company .description div {
-        padding-top: 8px;
-        font-size: 0.5rem;
-        margin-right: 5px;
-        font-weight: normal;
-    }
+.description li{
+  margin-bottom: 0.45rem;
+}
+
+/* small screens adjustments */
+@media (max-width: 600px){
+  .company-card{
+    gap: 0.65rem;
+    padding: 0.8rem;
+  }
+
+  .comp-logo{
+    width: 48px;
+    height: 48px;
+  }
+
+  .heading{
+    font-size: 1rem;
+  }
+
+  .role{
+    font-size: 0.85rem;
+  }
+
+  .description{
+    font-size: 0.85rem;
+    padding-left: 0.95rem;
+  }
+
+  .meta{
+    text-align: left;
+    margin-left: 0;
+    margin-top: 0.35rem;
+    align-items: flex-start;
+  }
+}
+
+/* keyboard focus visible for accessibility */
+.logo-link:focus,
+.company-card:focus-within{
+  outline: 3px solid rgba(224,172,0,0.12);
+  outline-offset: 4px;
+}
+
+/* utility: make the cards visually centered when only one */
+.cards:only-child,
+.cards:has(.company-card:only-child) {
+  justify-items: center;
 }
